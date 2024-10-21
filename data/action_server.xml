@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record id="action_cancel_stock_picking" model="ir.actions.server">
+        <field name="name">Bulk Cancel Stock Picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="code">
+ctx = env.context
+ctx.update({'default_type': 'cancel', 'default_name': 'Are you sure to cancel?'})
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Bulk Cancel Stock Picking',
+    'res_model': 'wizard.cancel.draft.work.flow',
+    'target': 'new',
+    'view_mode': 'form',
+    'context': ctx
+}
+        </field>
+    </record>
+
+    <record id="action_cancel_purchase_order" model="ir.actions.server">
+        <field name="name">Bulk Cancel Purchase Order</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">
+ctx = env.context
+ctx.update({'default_type': 'cancel', 'default_name': 'Are you sure to cancel?'})
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Bulk Cancel Purchase Order',
+    'res_model': 'wizard.cancel.draft.work.flow',
+    'target': 'new',
+    'view_mode': 'form',
+    'context': ctx
+}
+        </field>
+    </record>
+
+     <record id="action_cancel_account_move" model="ir.actions.server">
+        <field name="name">Bulk Cancel Invoice/Bill</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="state">code</field>
+        <field name="code">
+ctx = env.context
+ctx.update({'default_type': 'cancel', 'default_name': 'Are you sure to cancel?'})
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Bulk Cancel Invoice/Bill',
+    'res_model': 'wizard.cancel.draft.work.flow',
+    'target': 'new',
+    'view_mode': 'form',
+    'context': ctx
+}
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_picking_form_inherit_adding_cancel_from_done" model="ir.ui.view">
+        <field name="name">view_picking_form_inherit_adding_cancel_from_done</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_validate'][1]" position="after">
+                <button name="action_cancel_picking" invisible="state != 'done'" string="Cancel" type="object"/>
+                <button name="action_set_to_draft_picking" invisible="state != 'cancel'" string="Set To Draft" type="object"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

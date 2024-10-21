@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_cancel_set_to_draft" model="ir.actions.act_window">
+            <field name="name">Cancel/Set To Draft Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.cancel.draft.work.flow</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="wizard_cancel_set_to_draft_form_view" model="ir.ui.view">
+            <field name="name">hbc_cas_number_form_wizard_view</field>
+            <field name="model">wizard.cancel.draft.work.flow</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="name" no_label="1" readonly="1"/>
+                        <field name="type" invisible="1"/>
+                    </sheet>
+                    <footer>
+                        <button name="action_cancel" string="Confirm" type="object" class="btn-primary" invisible="type == 'set_to_draft'"/>
+                        <button name="action_set_to_draft" string="Confirm" type="object" class="btn-primary" invisible="type == 'cancel'"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
